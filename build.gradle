@@ -1,0 +1,25 @@
+allprojects {
+    buildDir = 'target'
+    
+    defaultTasks 'clean', 'build'
+}
+
+subprojects {
+	apply plugin: 'java'
+	buildDir = 'target'
+    defaultTasks 'clean', 'build'
+
+	repositories {
+		maven {        
+			url "http://xldn3273dap.ldn.swissbank.com:8081/nexus/content/repositories/public"
+		}
+		mavenCentral()
+	}  
+
+	dependencies {
+		compile 'org.slf4j:slf4j-api:1.7.5'
+		testCompile 'junit:junit:4.11'
+	}
+
+}
+
